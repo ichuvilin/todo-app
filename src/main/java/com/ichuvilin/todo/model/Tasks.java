@@ -1,8 +1,6 @@
 package com.ichuvilin.todo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,7 +8,8 @@ import javax.persistence.*;
 @Table(name = "tasks")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Tasks {
 
     @Id
@@ -27,4 +26,13 @@ public class Tasks {
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person owner;
 
+
+    @Override
+    public String toString() {
+        return "Tasks{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
 }

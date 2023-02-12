@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${person.getUsername()}">Title</title>
+</head>
+<body>
+
+    <p th:text="${'Hi, ' + person.getUsername()} + '!'">TEXT</p>
+    <a th:href="@{/person/{id}/todo(id=${person.getId()})}" >Go to your tasks</a>
+</body>
+</html>

@@ -1,8 +1,6 @@
 package com.ichuvilin.todo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +9,8 @@ import java.util.List;
 @Table(name = "person")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Person {
 
     @Id
@@ -27,4 +26,13 @@ public class Person {
     @OneToMany(mappedBy = "owner")
     private List<Tasks> tasks;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", tasks=" + tasks +
+                '}';
+    }
 }
